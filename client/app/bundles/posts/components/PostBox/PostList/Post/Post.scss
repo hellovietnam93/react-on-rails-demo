@@ -1,0 +1,11 @@
+.post {
+
+  .postAuthor {
+    color: $post-author-color;   // <--- Loaded via sass-resources-loader
+  }
+
+  p {
+    color: $post-text-color;     // <-- This one also
+  }
+
+}

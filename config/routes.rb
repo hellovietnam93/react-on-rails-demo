@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  get "hello_world", to: "hello_world#index"
-  root "posts#index"
-  resources "posts"
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Serve websocket cable requests in-process
+  # mount ActionCable.server => '/cable'
+
+  root "pages#index"
+
+  get "simple", to: "pages#simple"
+  get "no-router", to: "pages#no_router"
+
+  # React Router needs a wildcard
+  get "react-router(/*all)", to: "pages#index"
+
+  resources :posts
+  mount ActionCable.server => "/cable"
 end
